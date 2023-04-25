@@ -506,4 +506,67 @@ export default {
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
 }
+/* 设置表格的样式 */
+a-table {
+		border: 1px solid #ccc;
+		border-spacing: 0;
+		margin-bottom: 20px;
+}
+
+a-table th {
+		background-color: #393939;
+		color: white;
+		padding: 10px;
+}
+
+a-table td {
+		background-color: white;
+		color: #393939;
+		padding: 10px;
+		border: 1px solid #ccc;
+}
+
+/* 设置操作按钮的样式 */
+.editable-row-operations a {
+		display: inline-block;
+		padding: 6px 12px;
+		margin-right: 8px;
+		background-color: #393939;
+		color: white;
+		border-radius: 4px;
+		transition: background-color 0.3s ease-in-out;
+}
+
+.editable-row-operations a:hover {
+		background-color: #212121;
+}
+
+///* 设置大标题的样式 */
+//h2 {
+//		font-size: 28px;
+//		font-weight: bold;
+//		margin-top: 30px;
+//		margin-bottom: 20px;
+//}
+
+/* 设置文本框的样式 */
+a-input {
+		border-color: #ccc;
+}
+
+/* 修改表格的边框 */
+a-table-bordered {
+		border: 1px solid #ccc;
+}
+
+/* 修改表头和表格主体的背景色和文字颜色 */
+a-table thead th {
+		background-color: #393939;
+		color: white;
+}
+
+a-table tbody td {
+		background-color: white;
+		color: #393939;
+}
 </style>
