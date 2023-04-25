@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '梅林花园软件自动化度量系统',
+    title: '秋名山の小马达',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -54,7 +54,7 @@ export default {
 
   proxy: {
     '/server': {
-      target: 'http://192.168.0.102:3211/api',
+      target: 'http://127.0.0.1:3211/api',
       pathRewrite: {
         '^/server': ''
       }

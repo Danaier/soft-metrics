@@ -1,26 +1,26 @@
 <template>
     <div>
-        <div id="upld" class="bd" style="height:15vh">
-            <h2>文件上传处</h2>
-            <a-upload accept=".oom" :file-list="fileList" :remove="handleRemove" :before-upload="beforeUpload" style="float:left">
-                <a-button> <a-icon type="upload" /> 选择要上传的用例图(oom格式) </a-button>
-            </a-upload>
-            <a-button
-                type="primary"
-                :disabled="fileList.length === 0"
-                :loading="uploading"
-                style="margin-right: 16px;float:right"
-                @click="handleUpload">
-                {{ uploading ? '分析中' : '开始分析' }}
-            </a-button>
-        </div>
+<!--        <div id="upld" class="bd" style="height:15vh">-->
+<!--            <h2>文件上传处</h2>-->
+<!--            <a-upload accept=".oom" :file-list="fileList" :remove="handleRemove" :before-upload="beforeUpload" style="float:left">-->
+<!--                <a-button> <a-icon type="upload" /> 选择要上传的用例图(oom格式) </a-button>-->
+<!--            </a-upload>-->
+<!--            <a-button-->
+<!--                type="primary"-->
+<!--                :disabled="fileList.length === 0"-->
+<!--                :loading="uploading"-->
+<!--                style="margin-right: 16px;float:right"-->
+<!--                @click="handleUpload">-->
+<!--                {{ uploading ? '分析中' : '开始分析' }}-->
+<!--            </a-button>-->
+<!--        </div>-->
          <div id="uuc_div" class="bd" style="height:12vh">
             <h2>UUC计算</h2>
             <h3 style="float:left">简单用例个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="sp_value_uc" :min="0" :max="1000" @change="onChange_uc" />
             <h3 style="float:left;margin-left:10px">普通用例个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="nm_value_uc" :min="0" :max="1000" @change="onChange_uc" />
             <h3 style="float:left;margin-left:10px">复杂用例个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="cp_value_uc" :min="0" :max="1000" @change="onChange_uc" />
             <h3 style="margin-right:20px;margin-top:3px;float: right">该用例图所表示的UUC为{{uuc}}</h3>
-            <h3 style="float:left;margin-left:10px;color:red">{{warning_uc}}</h3>
+<!--            <h3 style="float:left;margin-left:10px;color:red">{{warning_uc}}</h3>-->
         </div>
         <div id="uaw_div" class="bd" style="height:12vh">
             <h2>UAW计算</h2>
@@ -28,7 +28,7 @@
             <h3 style="float:left;margin-left:10px">普通角色个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="nm_value" :min="0" :max="1000" @change="onChange" />
             <h3 style="float:left;margin-left:10px">复杂角色个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="cp_value" :min="0" :max="1000" @change="onChange" />
             <h3 style="margin-right:20px;margin-top:3px;float: right">该用例图所表示的UAW为{{uaw}}</h3>
-            <h3 style="float:left;margin-left:10px;color:red">{{warning}}</h3>
+<!--            <h3 style="float:left;margin-left:10px;color:red">{{warning}}</h3>-->
         </div>
         <div id="tcf_div" class="bd">
             <h2>TCF计算</h2>
@@ -52,13 +52,13 @@
                 <template slot="operation" slot-scope="text, record">
                     <div class="editable-row-operations">
                         <span v-if="record.editable">
-                        <a @click="() => vaf_save(record.key)">Save</a>
+                        <a @click="() => vaf_save(record.key)">保存</a>
                         <a-popconfirm title="Sure to cancel?" @confirm="() => vaf_cancel(record.key)">
-                            <a>Cancel</a>
+                            <a>取消</a>
                         </a-popconfirm>
                         </span>
                         <span v-else>
-                        <a :disabled="editingKey !== ''" @click="() => vaf_edit(record.key)">Edit</a>
+                        <a :disabled="editingKey !== ''" @click="() => vaf_edit(record.key)">编辑</a>
                         </span>
                     </div>
                 </template>
@@ -87,13 +87,13 @@
                 <template slot="operation" slot-scope="text, record">
                     <div class="editable-row-operations">
                         <span v-if="record.editable">
-                        <a @click="() => ef_save(record.key)">Save</a>
+                        <a @click="() => ef_save(record.key)">保存</a>
                         <a-popconfirm title="Sure to cancel?" @confirm="() => ef_cancel(record.key)">
-                            <a>Cancel</a>
+                            <a>取消</a>
                         </a-popconfirm>
                         </span>
                         <span v-else>
-                        <a :disabled="editingKey !== ''" @click="() => ef_edit(record.key)">Edit</a>
+                        <a :disabled="editingKey !== ''" @click="() => ef_edit(record.key)">编辑</a>
                         </span>
                     </div>
                 </template>
@@ -481,7 +481,7 @@ export default {
     handleUpload() {
         const { fileList } = this;
         const formData = new FormData();
-        
+
         fileList.forEach(file => {
             formData.append('file', file);
         });

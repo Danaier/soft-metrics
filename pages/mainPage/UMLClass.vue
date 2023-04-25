@@ -32,24 +32,24 @@ const columns=[
         key: 'name',
         scopedSlots: { customRender: 'name' },
     },
-    {
-        title: '类规模度量CS',
-        dataIndex: 'CS',
-        key: 'CS',
-        scopedSlots: { customRender: 'CS' },
-    },
+    // {
+    //     title: '类规模度量CS',
+    //     dataIndex: 'CS',
+    //     key: 'CS',
+    //     scopedSlots: { customRender: 'CS' },
+    // },
     {
         title: '方法重写数NOO',
         dataIndex: 'NOC',
         key: 'NOO',
         scopedSlots: { customRender: 'NOO' },
     },
-    {
-        title: '增加方法数目NOA',
-        dataIndex: 'NOA',
-        key: 'NOA',
-        scopedSlots: { customRender: 'NOA' },
-    },
+    // {
+    //     title: '增加方法数目NOA',
+    //     dataIndex: 'NOA',
+    //     key: 'NOA',
+    //     scopedSlots: { customRender: 'NOA' },
+    // },
     {
         title: '子类数目NOC',
         dataIndex: 'NOC',
@@ -104,7 +104,7 @@ export default {
             },(error)=>{
                 console.log('df',error)
             })
-            
+
         },
     }
 }

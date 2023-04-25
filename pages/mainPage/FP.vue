@@ -2,7 +2,8 @@
     <div>
         <div class="FP">
             <h2>UFC计算</h2>
-            <a-table :columns="fp_ufc_columns" :data-source="fp_ufc_data" :pagination="false" bordered>
+            <a-table :columns="fp_ufc_columns" :data-source="fp_ufc_data" :pagination="false" bordered
+                     :customHeaderRow="customHeaderRow" :customRow="customRow">
                 <template v-for="col in ['type']" :slot="col" slot-scope="text">
                     <div :key="col">
                         <template>
@@ -22,13 +23,13 @@
                 <template slot="operation" slot-scope="text, record">
                     <div class="editable-row-operations">
                         <span v-if="record.editable">
-                        <a @click="() => ufc_save(record.key)">Save</a>
+                        <a @click="() => ufc_save(record.key)">保存</a>
                         <a-popconfirm title="Sure to cancel?" @confirm="() => ufc_cancel(record.key)">
-                            <a>Cancel</a>
+                            <a>取消</a>
                         </a-popconfirm>
                         </span>
                         <span v-else>
-                        <a :disabled="editingKey !== ''" @click="() => ufc_edit(record.key)">Edit</a>
+                        <a :disabled="editingKey !== ''" @click="() => ufc_edit(record.key)">编辑</a>
                         </span>
                     </div>
                 </template>
@@ -57,13 +58,13 @@
                 <template slot="operation" slot-scope="text, record">
                     <div class="editable-row-operations">
                         <span v-if="record.editable">
-                        <a @click="() => vaf_save(record.key)">Save</a>
+                        <a @click="() => vaf_save(record.key)">保存</a>
                         <a-popconfirm title="Sure to cancel?" @confirm="() => vaf_cancel(record.key)">
-                            <a>Cancel</a>
+                            <a>取消</a>
                         </a-popconfirm>
                         </span>
                         <span v-else>
-                        <a :disabled="editingKey !== ''" @click="() => vaf_edit(record.key)">Edit</a>
+                        <a :disabled="editingKey !== ''" @click="() => vaf_edit(record.key)">编辑</a>
                         </span>
                     </div>
                 </template>
@@ -102,7 +103,7 @@ const fp_ufc_columns = [
     scopedSlots: { customRender: 'complex' },
   },
   {
-    title: '编辑',
+    title: '操作',
     dataIndex: 'operation',
     scopedSlots: { customRender: 'operation' },
   },
@@ -172,7 +173,7 @@ const fp_vaf_columns = [
     scopedSlots: { customRender: 'level' },
   },
   {
-    title: '编辑',
+    title: '操作',
     dataIndex: 'operation',
     scopedSlots: { customRender: 'operation' },
   },
@@ -277,7 +278,7 @@ const fp_vaf_data = [
         'description': '软件系统对查询、统计以及变更维护的支持',
         'level': 0
     },
-    
+
 ];
 export default {
   data() {
@@ -294,6 +295,20 @@ export default {
     };
   },
   methods: {
+    customHeaderRow() {
+        return {
+          style: {
+              'font-size' : '16px'
+          },
+        }
+    },
+    customRow() {
+        return {
+              style: {
+                  'font-size' : '16px'
+              },
+        }
+    },
     calculate_fp_ufc(){
         this.fp_ufc = fp_ufc_data[0].simple * 3 + fp_ufc_data[0].average * 4 + fp_ufc_data[0].complex * 6 +
                     fp_ufc_data[1].simple * 4 + fp_ufc_data[1].average * 5 + fp_ufc_data[1].complex * 7 +
@@ -391,6 +406,7 @@ export default {
       }
     },
   },
+
 };
 </script>
 <style lang="scss" scoped>
@@ -402,5 +418,86 @@ export default {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+		background-color: #f1f4f9;
+		color: white;
+		font-family: 'Open Sans', sans-serif;
 }
+/* 设置整个页面的背景和字体颜色 */
+body {
+
+}
+
+/* 设置表格的样式 */
+a-table {
+		border: 1px solid #ccc;
+		border-spacing: 0;
+		margin-bottom: 20px;
+}
+
+a-table th {
+		background-color: #393939;
+		color: white;
+		padding: 10px;
+}
+
+a-table td {
+		background-color: white;
+		color: #393939;
+		padding: 10px;
+		border: 1px solid #ccc;
+}
+
+/* 设置操作按钮的样式 */
+.editable-row-operations a {
+		display: inline-block;
+		padding: 6px 12px;
+		margin-right: 8px;
+		background-color: #393939;
+		color: white;
+		border-radius: 4px;
+		transition: background-color 0.3s ease-in-out;
+}
+
+.editable-row-operations a:hover {
+		background-color: #212121;
+}
+
+/* 设置大标题的样式 */
+h2 {
+		font-size: 28px;
+		font-weight: bold;
+		margin-top: 30px;
+		margin-bottom: 20px;
+}
+
+/* 设置文本框的样式 */
+a-input {
+		border-color: #ccc;
+}
+
+/* 修改表格的边框 */
+a-table-bordered {
+		border: 1px solid #ccc;
+}
+
+/* 修改表头和表格主体的背景色和文字颜色 */
+a-table thead th {
+		background-color: #393939;
+		color: white;
+}
+
+a-table tbody td {
+		background-color: white;
+		color: #393939;
+}
+
+/* 修改页面底部的结果区域的样式 */
+.FP {
+		background-color: white;
+		color: #393939;
+		border-radius: 8px;
+		padding: 20px;
+		margin-bottom: 20px;
+}
+
 </style>
