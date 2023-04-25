@@ -18,12 +18,12 @@ def handle_error(func):
 
 
 def get_data():
-    if (request.method == 'POST' or request.method == 'PUT') and request.get_data():
-        g.data = request.get_json()
-    elif request.method == 'GET' or request.method == 'DELETE':
-        g.data = request.args
-    else:
-        g.data = {}
+    # if (request.method == 'POST' or request.method == 'PUT') and request.get_data():
+    #     g.data = request.get_json()
+    # elif request.method == 'GET' or request.method == 'DELETE':
+    #     g.data = request.args
+    # else:
+    g.data = {}
 
 
 def params_check(params: list):
