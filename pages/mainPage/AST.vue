@@ -23,7 +23,7 @@
             <h2>抽象语法树分析结果</h2>
             <a-table :columns="columns" :data-source="dataList" class="components-table-demo-nested">
                 <template #expandedRowRender='dataList'>
-                <a-table 
+                <a-table
                     slot="expandedRowRender"
                     :columns="innerColumns"
                     :data-source="dataList.innerData"
@@ -31,7 +31,7 @@
                 </a-table>
                 </template>
             </a-table>
-        </div> 
+        </div>
     </div>
 </template>
 <script>
@@ -83,9 +83,9 @@ export default {
         return{
             fileList: [],
             uploading: false,
-            CLOC: 0,  
+            CLOC: 0,
             LLOC: 0,
-            NCLOC: 0, 
+            NCLOC: 0,
             PLOC: 0,
             dataList,
             columns,
@@ -146,19 +146,20 @@ export default {
                         this.innerData.push(md)
                     }
                     temp['innerData'] = ms
-                    
+
                     this.dataList.push(temp)
                 }
             },(error)=>{
             })
-            
+
         },
     }
 }
 </script>
 <style lang="scss" scoped>
 .bd{
-    margin: 2vh;
+		margin: 2vh auto;
+		max-width: 1500px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);

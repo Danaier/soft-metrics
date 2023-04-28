@@ -1,7 +1,7 @@
 <template>
   <div @click="change()">
     <NuxtLogo class="logo"/>
-    <h1>Merlin Garden</h1>
+    <h1>秋名山の小马达</h1>
   </div>
 </template>
 

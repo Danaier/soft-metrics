@@ -2,7 +2,7 @@
     <div>
         <div class="FP">
             <h2>UFC计算</h2>
-            <a-table :columns="fp_ufc_columns" :data-source="fp_ufc_data" :pagination="false" bordered
+            <a-table :columns="fp_ufc_columns" :data-source="fp_ufc_data" :pagination="false" bordered="true"
                      :customHeaderRow="customHeaderRow" :customRow="customRow">
                 <template v-for="col in ['type']" :slot="col" slot-scope="text">
                     <div :key="col">
@@ -33,6 +33,12 @@
                         </span>
                     </div>
                 </template>
+								<Table.Summary fixed>
+										<Table.Summary.Row>
+												<Table.Summary.Cell index={0}>Summary</Table.Summary.Cell>
+												<Table.Summary.Cell index={1}>This is a summary content</Table.Summary.Cell>
+										</Table.Summary.Row>
+								</Table.Summary>
             </a-table>
             <h3 style="margin-top:8px">计算得到UFC为{{fp_ufc}}</h3>
         </div>
@@ -81,7 +87,7 @@ const fp_ufc_columns = [
   {
     title: '请在表格中填入对应的个数',
     dataIndex: 'type',
-    width: '30%',
+    width: '28%',
     scopedSlots: { customRender: 'type' },
   },
   {
@@ -163,7 +169,7 @@ const fp_vaf_columns = [
   {
     title: '简单描述',
     dataIndex: 'description',
-    width: '70%',
+    width: '65%',
     scopedSlots: { customRender: 'description' },
   },
   {
@@ -414,11 +420,12 @@ export default {
   margin-right: 8px;
 }
 .FP{
-    margin: 2vh;
-    padding: 10px;
+    margin: 2vh auto;
+		max-width: 1500px;
+		padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-		background-color: #f1f4f9;
+		background-color: #2d75f1;
 		color: white;
 		font-family: 'Open Sans', sans-serif;
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="defaultLayout">
-        <a-menu  mode="horizontal inline" theme="dark" v-model="current">
+        <a-menu  mode="vertical inline" theme="dark" v-model="current">
             <a-menu-item key="/mainPage/FP" @click="change('/mainPage/FP')"> <a-icon type="heart" />功能点度量 </a-menu-item>
             <a-menu-item key="/mainPage/AST" @click="change('/mainPage/AST')"> <a-icon type="star" />代码辅助度量 </a-menu-item>
             <a-menu-item key="/mainPage/DataFlow" @click="change('/mainPage/DataFlow')"> <a-icon type="line" />控制流图辅助度量 </a-menu-item>

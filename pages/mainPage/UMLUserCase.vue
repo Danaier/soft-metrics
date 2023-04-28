@@ -117,7 +117,7 @@ const ef_columns = [
   {
     title: '说明',
     dataIndex: 'description',
-    width: '30%',
+    width: '28%',
     scopedSlots: { customRender: 'description' },
   },
   {
@@ -133,7 +133,7 @@ const ef_columns = [
     scopedSlots: { customRender: 'f' },
   },
   {
-    title: '编辑',
+    title: '操作',
     dataIndex: 'operation',
     scopedSlots: { customRender: 'operation' },
   },
@@ -207,7 +207,7 @@ const fp_vaf_columns = [
   {
     title: '说明',
     dataIndex: 'feature',
-    width: '30%',
+    width: '28%',
     scopedSlots: { customRender: 'feature' },
   },
   {
@@ -223,7 +223,7 @@ const fp_vaf_columns = [
     scopedSlots: { customRender: 'level' },
   },
   {
-    title: '编辑',
+    title: '操作',
     dataIndex: 'operation',
     scopedSlots: { customRender: 'operation' },
   },
@@ -452,21 +452,12 @@ export default {
       }
     },
     onChange_uc(){
-      if(this.uuc_count == this.sp_value_uc+this.nm_value_uc+this.cp_value_uc){
-        this.uuc = this.sp_value_uc * 5 + this.nm_value_uc * 10 + this.cp_value_uc * 15
-        this.warning_uc = ''
-      }
-      else
-        this.warning_uc = '请检查用例个数是否填写错误,图中用例为'+this.uuc_count+'个'
+				this.uuc = this.sp_value_uc * 5 + this.nm_value_uc * 10 + this.cp_value_uc * 15
+				this.warning_uc = ''
     },
     onChange(){
-      if(this.uaw_count == this.sp_value+this.nm_value+this.cp_value)
-      {
         this.uaw = this.sp_value * 1 + this.nm_value * 2 + this.cp_value * 3
         this.warning = ''
-      }
-      else
-        this.warning = '请检查角色个数是否填写错误,图中角色为'+this.uaw_count+'个'
     },
     handleRemove(file) {
         const index = this.fileList.indexOf(file);
@@ -501,7 +492,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .bd{
-    margin: 2vh;
+		margin: 2vh auto;
+		max-width: 1500px;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
