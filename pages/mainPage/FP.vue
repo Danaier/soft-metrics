@@ -33,12 +33,6 @@
                         </span>
                     </div>
                 </template>
-								<Table.Summary fixed>
-										<Table.Summary.Row>
-												<Table.Summary.Cell index={0}>Summary</Table.Summary.Cell>
-												<Table.Summary.Cell index={1}>This is a summary content</Table.Summary.Cell>
-										</Table.Summary.Row>
-								</Table.Summary>
             </a-table>
             <h3 style="margin-top:8px">计算得到UFC为{{fp_ufc}}</h3>
         </div>
@@ -428,6 +422,7 @@ export default {
 		background-color: #2d75f1;
 		color: white;
 		font-family: 'Open Sans', sans-serif;
+		//display: flex;
 }
 /* 设置整个页面的背景和字体颜色 */
 body {
