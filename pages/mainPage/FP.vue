@@ -1,7 +1,23 @@
 <template>
     <div>
+				<a-card class="data-viewer-top"
+								size="small"
+				>
+						<div class="data-line">
+								<h2>FP功能点度量</h2>
+								<h3>FP={{Math.ceil(fp_vaf * fp_ufc * 100) / 100.0}}</h3>
+						</div>
+				</a-card>
         <div class="FP">
-            <h2>UFC计算</h2>
+						<a-card class="data-viewer"
+										size="small"
+								>
+								<div class="data-line">
+										<h2>UFC计算</h2>
+										<h3>UFC={{fp_ufc}}</h3>
+								</div>
+						</a-card>
+
             <a-table :columns="fp_ufc_columns" :data-source="fp_ufc_data" :pagination="false" bordered="true"
                      :customHeaderRow="customHeaderRow" :customRow="customRow">
                 <template v-for="col in ['type']" :slot="col" slot-scope="text">
@@ -34,10 +50,17 @@
                     </div>
                 </template>
             </a-table>
-            <h3 style="margin-top:8px">计算得到UFC为{{fp_ufc}}</h3>
         </div>
         <div class="FP">
-          <h2>VAF计算</h2>
+						<a-card class="data-viewer"
+										size="small"
+						>
+								<div class="data-line">
+										<h2>VAF计算</h2>
+										<h3>VAF={{fp_vaf}}</h3>
+								</div>
+
+						</a-card>
             <a-table :columns="fp_vaf_columns" :data-source="fp_vaf_data" :pagination="false" bordered>
                 <template v-for="col in ['id', 'feature', 'description']" :slot="col" slot-scope="text">
                     <div :key="col">
@@ -69,11 +92,9 @@
                     </div>
                 </template>
             </a-table>
-          <h3 style="margin-top:8px">计算得到VAF为{{fp_vaf}}</h3>
+
         </div>
-        <div class="FP">
-          <h3 style="margin-top:8px">该项目功能点度量结果FP为{{Math.ceil(fp_vaf * fp_ufc * 100) / 100.0}}</h3>
-        </div>
+
     </div>
 </template>
 <script>
@@ -466,10 +487,10 @@ a-table td {
 
 /* 设置大标题的样式 */
 h2 {
-		font-size: 28px;
+		//font-size: 28px;
 		font-weight: bold;
-		margin-top: 30px;
-		margin-bottom: 20px;
+		//margin-top: 30px;
+		//margin-bottom: 20px;
 }
 
 /* 设置文本框的样式 */
@@ -500,6 +521,55 @@ a-table tbody td {
 		border-radius: 8px;
 		padding: 20px;
 		margin-bottom: 20px;
+}
+
+.data-viewer {
+		align-items: center;
+		margin: 5px 0;
+		position: sticky;
+		z-index: 3;
+		top: 75px;
+
+		width: 100%;
+		justify-content: center;
+
+		.data-line {
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+				h2 {
+						margin-right : auto;
+				}
+				h3 {
+						align-items: center;
+						justify-content: center;
+				}
+		}
+}
+.data-viewer-top {
+		align-items: center;
+		margin: 5px 0;
+		position: sticky;
+		z-index: 3;
+		top: 0;
+
+		width: 100%;
+		justify-content: center;
+
+		.data-line {
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+				h2 {
+						margin-right : auto;
+				}
+				h3 {
+						align-items: center;
+						justify-content: center;
+				}
+		}
 }
 
 </style>

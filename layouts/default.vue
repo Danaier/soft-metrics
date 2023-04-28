@@ -35,11 +35,11 @@ export default {
     height: 100%;
 		.defaultMenu{
 				position: fixed;
-				width: 150px;
+				width: 175px;
 				height: 100vh;
 		}
 		.defaultView{
-				margin-left: 150px;
+				margin-left: 177px;
 		}
 }
 </style>

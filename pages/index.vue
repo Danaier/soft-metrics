@@ -23,7 +23,7 @@ export default {
 h1{
   margin-left: 73vh;
   margin-top: 5vh;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: bold;
   font-family: 'Times New Roman', Times, serif;
 }

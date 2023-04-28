@@ -14,7 +14,17 @@
 <!--                {{ uploading ? '分析中' : '开始分析' }}-->
 <!--            </a-button>-->
 <!--        </div>-->
-         <div id="uuc_div" class="bd" style="height:12vh">
+
+				<a-card class="data-viewer-top"
+								size="small"
+				>
+						<div class="data-line">
+								<h2>UCP用例图辅助度量</h2>
+								<h3>UCP={{Math.ceil((uaw+uuc) * tcf * ef * 100) / 100.0}}</h3>
+						</div>
+				</a-card>
+
+				<div id="uuc_div" class="bd" style="height:12vh">
             <h2>UUC计算</h2>
             <h3 style="float:left">简单用例个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="sp_value_uc" :min="0" :max="1000" @change="onChange_uc" />
             <h3 style="float:left;margin-left:10px">普通用例个数</h3> <a-input-number style="float:left;margin-left:10px" id="inputNumber" v-model="nm_value_uc" :min="0" :max="1000" @change="onChange_uc" />
@@ -31,7 +41,16 @@
 <!--            <h3 style="float:left;margin-left:10px;color:red">{{warning}}</h3>-->
         </div>
         <div id="tcf_div" class="bd">
-            <h2>TCF计算</h2>
+
+						<a-card class="data-viewer"
+										size="small"
+						>
+								<div class="data-line">
+										<h2>TCF计算</h2>
+										<h3>TCF={{tcf}}</h3>
+								</div>
+						</a-card>
+
             <a-table :columns="fp_vaf_columns" :data-source="fp_vaf_data" :pagination="false" bordered>
                 <template v-for="col in ['id', 'feature', 'weight']" :slot="col" slot-scope="text">
                     <div :key="col">
@@ -63,10 +82,16 @@
                     </div>
                 </template>
             </a-table>
-          <h3 style="margin-top:8px">计算得到TCF为{{tcf}}</h3>
         </div>
         <div id="ef_div" class="bd">
-            <h2>EF计算</h2>
+						<a-card class="data-viewer"
+										size="small"
+						>
+								<div class="data-line">
+										<h2>EF计算</h2>
+										<h3>EF={{Math.ceil(ef * 100) / 100.0}}</h3>
+								</div>
+						</a-card>
             <a-table :columns="ef_columns" :data-source="ef_data" :pagination="false" bordered>
                 <template v-for="col in ['id', 'description', 'weight']" :slot="col" slot-scope="text">
                     <div :key="col">
@@ -98,11 +123,8 @@
                     </div>
                 </template>
             </a-table>
-            <h3 style="margin-top:8px">计算得到EF为{{Math.ceil(ef * 100) / 100.0}}</h3>
         </div>
-        <div class="bd">
-            <h3 style="margin-top:8px">计算得到UCP为{{Math.ceil((uaw+uuc) * tcf * ef * 100) / 100.0}}</h3>
-        </div>
+
     </div>
 </template>
 <script>
@@ -533,13 +555,13 @@ a-table td {
 		background-color: #212121;
 }
 
-///* 设置大标题的样式 */
-//h2 {
-//		font-size: 28px;
-//		font-weight: bold;
-//		margin-top: 30px;
-//		margin-bottom: 20px;
-//}
+/* 设置大标题的样式 */
+h2 {
+		//font-size: 28px;
+		font-weight: bold;
+		//margin-top: 30px;
+		//margin-bottom: 20px;
+}
 
 /* 设置文本框的样式 */
 a-input {
@@ -560,5 +582,55 @@ a-table thead th {
 a-table tbody td {
 		background-color: white;
 		color: #393939;
+}
+
+.data-viewer {
+		align-items: center;
+		margin: 5px 0;
+		position: sticky;
+		z-index: 3;
+		top: 75px;
+
+		width: 100%;
+		justify-content: center;
+
+		.data-line {
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+				h2 {
+						margin-right : auto;
+				}
+				h3 {
+						align-items: center;
+						justify-content: center;
+				}
+		}
+}
+
+.data-viewer-top {
+		align-items: center;
+		margin: 5px 0;
+		position: sticky;
+		z-index: 3;
+		top: 0;
+
+		width: 100%;
+		justify-content: center;
+
+		.data-line {
+				display: flex;
+				width: 100%;
+				align-items: center;
+				justify-content: center;
+				h2 {
+						margin-right : auto;
+				}
+				h3 {
+						align-items: center;
+						justify-content: center;
+				}
+		}
 }
 </style>
