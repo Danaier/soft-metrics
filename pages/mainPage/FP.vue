@@ -532,6 +532,7 @@ a-table tbody td {
 
 		width: 100%;
 		justify-content: center;
+		border-radius:15px;
 
 		.data-line {
 				display: flex;
@@ -556,6 +557,7 @@ a-table tbody td {
 
 		width: 100%;
 		justify-content: center;
+		border-radius:15px;
 
 		.data-line {
 				display: flex;

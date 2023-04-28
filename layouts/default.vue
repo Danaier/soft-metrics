@@ -39,7 +39,10 @@ export default {
 				height: 100vh;
 		}
 		.defaultView{
+				//background-color: #f6e2e2;
 				margin-left: 177px;
+				background-image: url("/background.jfif");
+				background-size:100% 100%;
 		}
 }
 </style>
